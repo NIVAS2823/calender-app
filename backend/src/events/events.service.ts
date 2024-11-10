@@ -1,25 +1,36 @@
+// src/events/events.service.ts
 import { Injectable } from '@nestjs/common';
-
- export interface Event {
-  id: number;
-  title: string;
-  date: string;
-  description: string;
-}
+import { Event } from './event.entity'; // Correct path to the Event class
 
 @Injectable()
 export class EventsService {
-  private events: Event[] = [];
+  private readonly events: Event[] = [];
 
-  // Method to add a new event
   create(event: Event): Event {
-    event.id = this.events.length + 1;
     this.events.push(event);
     return event;
   }
 
-  // Method to get all events
   findAll(): Event[] {
     return this.events;
+  }
+
+  findOne(id: number): Event {
+    return this.events.find(event => event.id === id);
+  }
+
+  update(id: number, updatedEvent: Event): Event {
+    const eventIndex = this.events.findIndex(event => event.id === id);
+    if (eventIndex > -1) {
+      this.events[eventIndex] = updatedEvent;
+      return updatedEvent;
+    }
+  }
+
+  delete(id: number): void {
+    const eventIndex = this.events.findIndex(event => event.id === id);
+    if (eventIndex > -1) {
+      this.events.splice(eventIndex, 1);
+    }
   }
 }

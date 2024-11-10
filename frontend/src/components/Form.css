@@ -1,0 +1,32 @@
+/* src/components/Form.css */
+.event-form {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    background-color: #e3f2fd;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .event-form input {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .event-form button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .event-form button:hover {
+    background-color: #357abd;
+  }
+  
